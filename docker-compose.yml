@@ -1,0 +1,19 @@
+version: '3'
+services:
+  app:
+    build: ./django
+    container_name: password_manager.app
+    volumes:
+      - ./src:/src
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
+
+  db:
+    image: mariadb:10.3
+    container_name: password_manager.db
+    env_file: ./mariadb/.env
+    ports:
+      - "3307:3306"
+    depends_on:
+      - app
