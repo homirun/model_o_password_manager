@@ -7,4 +7,15 @@
     <ul>
         <li> <a href="{% url 'signup' %}">新規登録</a></li>
     </ul>
+    <h2>ログイン</h2>
+    <form method="post" action="{% url 'index' %}">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+        {% for field in form %}
+            {{ field }}
+            {{ field.errors }}
+        {% endfor %}
+        <button type="submit" class="btn btn-success btn-lg btn-block" >ログイン</button>
+        <input type="hidden" name="next" value="{% url 'manage_account' %}" />
+    </form>
 {% endblock %}
