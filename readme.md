@@ -8,4 +8,4 @@ DockerCompose: http://docs.docker.jp/compose/install.html
 2. リポジトリをクローン
 3. コンテナを上げる  
  ```docker-compose up -d```
-4. localhost:8080へアクセス 
+4. localhost:800へアクセス 
